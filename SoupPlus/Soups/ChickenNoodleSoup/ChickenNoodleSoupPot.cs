@@ -59,7 +59,7 @@ namespace KitchenSoupsPlus.ChickenNoodleSoup
         {
             new Item.ItemProcess()
             {
-                Duration = 4.5f,
+                Duration = 10f,
                 Process = Refs.Cook,
                 Result = Refs.ChickenNoodleSoupPotCooked
             }

@@ -3,6 +3,7 @@ using KitchenLib.Customs;
 using KitchenLib.References;
 using KitchenLib.Utils;
 using KitchenSoupsPlus.ChickenNoodleSoup;
+using KitchenSoupsPlus.FrenchOnionSoup;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,10 @@ namespace KitchenSoupsPlus
         public static Item Water => Find<Item>(ItemReferences.Water);
         public static Item DepletedSoup => Find<Item>(ItemReferences.SoupDepleted);
         public static Item Broth => Find<Item>(ItemReferences.BrothCookedOnion);
+        public static Item Onion => Find<Item>(ItemReferences.Onion);
+        public static Item ChoppedOnion => Find<Item>(ItemReferences.OnionChopped);
+        public static Item Cheese => Find<Item>(ItemReferences.Cheese);
+        public static Item ChoppedCheese => Find<Item>(ItemReferences.CheeseGrated);
 
         // Processes
         public static Process Cook => Find<Process>(ProcessReferences.Cook);
@@ -38,12 +43,21 @@ namespace KitchenSoupsPlus
 
         #region Modded References
         // Items
+            // Chicken Noodle
         public static ItemGroup ChickenNoodleSoupPot => Find<ItemGroup, ChickenNoodleSoupPot>();
         public static Item ChickenNoodleSoupPotCooked => Find<Item, ChickenNoodleSoupPotCooked>();
         public static Item ChickenNoodleSoup => Find<Item, ChickenNoodleSoup.ChickenNoodleSoup>();
+            // French Onion
+        public static ItemGroup FrenchOnionSoupPot => Find<ItemGroup, FrenchOnionSoupPot>();
+        public static ItemGroup FrenchOnionSoupPotChopped => Find<ItemGroup, FrenchOnionSoupPotChopped>();
+        public static Item FrenchOnionSoupPotCooked => Find<Item, FrenchOnionSoupPotCooked>();
+        public static Item FrenchOnionSoup => Find<Item, FrenchOnionSoup.FrenchOnionSoup>();
 
         // Cards
+            // Chicken Noodle
         public static Dish ChickenNoodleSoupCard => Find<Dish, ChickenNoodleSoupCard>();
+            // French Onion
+        public static Dish FrenchOnionSoupCard => Find<Dish, FrenchOnionSoupCard>();
         #endregion
 
 

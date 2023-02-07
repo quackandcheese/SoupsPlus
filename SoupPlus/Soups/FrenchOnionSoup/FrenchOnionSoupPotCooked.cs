@@ -12,9 +12,9 @@ using System.Threading.Tasks;
 using Unity.Entities;
 using UnityEngine;
 
-namespace KitchenSoupsPlus.ChickenNoodleSoup
+namespace KitchenSoupsPlus.FrenchOnionSoup
 {
-    public class ChickenNoodleSoupPotCookedItemView : PositionSplittableView
+    public class FrenchOnionSoupPotCookedItemView : PositionSplittableView
     {
         internal void Setup(GameObject prefab)
         {
@@ -27,53 +27,53 @@ namespace KitchenSoupsPlus.ChickenNoodleSoup
             var fObjects = ReflectionUtils.GetField<PositionSplittableView>("Objects");
             fObjects.SetValue(this, new List<GameObject>() 
             { 
-                prefab.GetChild("Chicken Noodle")
+                prefab.GetChild("French Onion")
             });
         }
     }
 
-    public class ChickenNoodleSoupPotCooked : CustomItem
+    public class FrenchOnionSoupPotCooked : CustomItem
     {
-        public override string UniqueNameID => "Chicken Noodle Soup Pot Cooked";
-        public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("ChickenNoodleSoupPotCooked");
+        public override string UniqueNameID => "French Onion Soup Pot Cooked";
+        public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("FrenchOnionSoupPotCooked");
         public override bool AllowSplitMerging => false;
         public override float SplitSpeed => 1f;
         public override int SplitCount => 3;
-        public override Item SplitSubItem => Refs.ChickenNoodleSoup;
+        public override Item SplitSubItem => Refs.FrenchOnionSoup;
         public override List<Item> SplitDepletedItems => new() { Refs.DepletedSoup };
         public override Item DisposesTo => Refs.Pot;
         public override bool PreventExplicitSplit => false;
-        public override string ColourBlindTag => "CN";
+        public override string ColourBlindTag => "FO";
 
 
         public override void OnRegister(GameDataObject gameDataObject)
         {
-            var chickenNoodle = Prefab.GetChild("Chicken Noodle");
+            var frenchOnion = Prefab.GetChild("French Onion");
 
-            var pot = Prefab.GetChild("Broth.001");
+            var pot = Prefab.GetChildFromPath("Pot.002/Pot.003");
 
-            pot.ApplyMaterialToChild("Pot.001", "Metal");
+            // Visuals
 
-            pot.ApplyMaterialToChild("Handles.001", "Metal Dark");
-
-            chickenNoodle.ApplyMaterialToChild("EggNoodles.001", "Sack");
-
-            chickenNoodle.ApplyMaterialToChild("Herbs", "Cooked Broccoli");
-
-            chickenNoodle.ApplyMaterialToChild("Chicken.001", "Cooked Bone");
-
-            chickenNoodle.ApplyMaterialToChild("Carrot - Chopped", "Carrot");
-
-            chickenNoodle.ApplyMaterialToChild("Onion Water", "Cooked Pastry");
+            frenchOnion.GetChild("Cheese - Grated.001").ApplyMaterialToChildren("Potato - Chopped", "Cheese - Default");
 
             Prefab.GetChild("Onion (1).006").ApplyMaterialToChild("Onion.009", "Onion");
+
+            frenchOnion.GetChild("Onion - Chopped.002").GetChild("Onion - Chopped.003").ApplyMaterialToChildren("Circle", "Onion - Flesh", "Onion");
+
+            frenchOnion.ApplyMaterialToChild("Onion Water", "Onion");
+
+            pot.ApplyMaterialToChild("Cylinder.001", "Metal");
+
+            pot.ApplyMaterialToChild("Cylinder.002", "Metal Dark");
+
+            frenchOnion.ApplyMaterialToChild("Herbs.001", "Lettuce");
 
             Prefab.GetChild("Steam").ApplyVisualEffect("Steam");
 
 
-            if (!Prefab.HasComponent<ChickenNoodleSoupPotCookedItemView>())
+            if (!Prefab.HasComponent<FrenchOnionSoupPotCookedItemView>())
             {
-                var view = Prefab.AddComponent<ChickenNoodleSoupPotCookedItemView>();
+                var view = Prefab.AddComponent<FrenchOnionSoupPotCookedItemView>();
                 view.Setup(Prefab);
             }
         }

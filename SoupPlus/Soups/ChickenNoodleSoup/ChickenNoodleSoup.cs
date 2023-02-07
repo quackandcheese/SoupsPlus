@@ -16,7 +16,7 @@ namespace KitchenSoupsPlus.ChickenNoodleSoup
         public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("ChickenNoodleSoup");
         public override ItemCategory ItemCategory => ItemCategory.Generic;
         public override ItemStorage ItemStorageFlags => ItemStorage.StackableFood;
-        public override ItemValue ItemValue => ItemValue.Small;
+        public override ItemValue ItemValue => ItemValue.SideLarge;
         public override string ColourBlindTag => "CN";
 
 

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Unity.Transforms;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -63,6 +64,7 @@ namespace SoupsPlus.Utils
             gameObject.GetChild(childName).ApplyMaterial(GetMaterialArray(materials));
         }
 
+
         public static Material[] GetMaterialArray(params string[] materials)
         {
             List<Material> materialList = new List<Material>();
@@ -80,6 +82,17 @@ namespace SoupsPlus.Utils
                 }
             }
             return materialList.ToArray();
+        }
+
+        // Misc Helper Utils
+        internal static void SetupGenericCrates(GameObject prefab)
+        {
+            prefab.GetChild("GenericStorage").ApplyMaterialToChildren("Cube", "Wood - Default");
+        }
+
+        internal static void SetupGenericFlourSack(GameObject prefab, string material)
+        {
+            prefab.ApplyMaterialToChild("FlourSack", "Sack", material);
         }
     }
 }

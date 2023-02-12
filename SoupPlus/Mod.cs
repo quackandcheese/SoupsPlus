@@ -3,6 +3,7 @@ using KitchenLib.Event;
 using KitchenMods;
 using KitchenSoupsPlus.ChickenNoodleSoup;
 using KitchenSoupsPlus.FrenchOnionSoup;
+using KitchenSoupsPlus.Soups;
 using System.Linq;
 using System.Reflection;
 using UnityEngine;
@@ -17,7 +18,7 @@ namespace KitchenSoupsPlus
         // Mod Version must follow semver notation e.g. "1.2.3"
         public const string MOD_GUID = "QuackAndCheese.PlateUp.SoupsPlus";
         public const string MOD_NAME = "SoupsPlus";
-        public const string MOD_VERSION = "0.1.1";
+        public const string MOD_VERSION = "0.1.2";
         public const string MOD_AUTHOR = "QuackAndCheese";
         public const string MOD_GAMEVERSION = ">=1.1.3";
         // Game version this mod is designed for in semver
@@ -56,6 +57,19 @@ namespace KitchenSoupsPlus
             AddGameDataObject<FrenchOnionSoup.FrenchOnionSoup>();
             AddGameDataObject<FrenchOnionSoupCard>();
             AddGameDataObject<FrenchOnionSoupPotChopped>();
+
+            // Miso Soup
+            AddGameDataObject<ChoppedTofuPot>();
+            AddGameDataObject<Miso>();
+            AddGameDataObject<MisoProvider>();
+            AddGameDataObject<MisoSoup>();
+            AddGameDataObject<MisoSoupCard>();
+            AddGameDataObject<MisoSoupPot>();
+            AddGameDataObject<MisoSoupPotCooked>();
+            AddGameDataObject<SoybeanPot>();
+            AddGameDataObject<SoybeanPotCooked>();
+            AddGameDataObject<SoybeanProvider>();
+            AddGameDataObject<Soybeans>();
 
             LogInfo("Done loading game data.");
         }

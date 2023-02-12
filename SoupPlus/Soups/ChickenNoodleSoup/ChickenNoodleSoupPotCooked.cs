@@ -43,7 +43,7 @@ namespace KitchenSoupsPlus.ChickenNoodleSoup
         public override List<Item> SplitDepletedItems => new() { Refs.DepletedSoup };
         public override Item DisposesTo => Refs.Pot;
         public override bool PreventExplicitSplit => false;
-        public override string ColourBlindTag => "CN";
+        public override string ColourBlindTag => "ChiNo";
 
 
         public override void OnRegister(GameDataObject gameDataObject)

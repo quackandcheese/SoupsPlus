@@ -43,7 +43,7 @@ namespace KitchenSoupsPlus.FrenchOnionSoup
         public override List<Item> SplitDepletedItems => new() { Refs.DepletedSoup };
         public override Item DisposesTo => Refs.Pot;
         public override bool PreventExplicitSplit => false;
-        public override string ColourBlindTag => "FO";
+        public override string ColourBlindTag => "FrO";
 
 
         public override void OnRegister(GameDataObject gameDataObject)

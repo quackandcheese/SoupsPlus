@@ -4,6 +4,7 @@ using KitchenLib.References;
 using KitchenLib.Utils;
 using KitchenSoupsPlus.ChickenNoodleSoup;
 using KitchenSoupsPlus.FrenchOnionSoup;
+using KitchenSoupsPlus.Soups;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,12 +53,25 @@ namespace KitchenSoupsPlus
         public static ItemGroup FrenchOnionSoupPotChopped => Find<ItemGroup, FrenchOnionSoupPotChopped>();
         public static Item FrenchOnionSoupPotCooked => Find<Item, FrenchOnionSoupPotCooked>();
         public static Item FrenchOnionSoup => Find<Item, FrenchOnionSoup.FrenchOnionSoup>();
+            // Miso
+        public static Item Soybeans => Find<Item, Soybeans>();
+        public static ItemGroup SoybeanPot => Find<ItemGroup, SoybeanPot>();
+        public static Appliance SoybeanProvider => Find<Appliance, SoybeanProvider>();
+        public static Item SoybeanPotCooked => Find<Item, SoybeanPotCooked>();
+        public static Item ChoppedTofuPot => Find<Item, ChoppedTofuPot>();
+        public static ItemGroup MisoSoupPot => Find<ItemGroup, MisoSoupPot>();
+        public static Item MisoSoupPotCooked => Find<Item, MisoSoupPotCooked>();
+        public static Item MisoSoup => Find<Item, MisoSoup>();
+        public static Item Miso => Find<Item, Miso>();
+        public static Appliance MisoProvider => Find<Appliance, MisoProvider>();
 
         // Cards
             // Chicken Noodle
         public static Dish ChickenNoodleSoupCard => Find<Dish, ChickenNoodleSoupCard>();
             // French Onion
         public static Dish FrenchOnionSoupCard => Find<Dish, FrenchOnionSoupCard>();
+            // Miso
+        public static Dish MisoSoupCard => Find < Dish, MisoSoupCard>();
         #endregion
 
 

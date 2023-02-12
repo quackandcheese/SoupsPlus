@@ -5,6 +5,7 @@ using KitchenLib.Colorblind;
 using KitchenLib.Customs;
 using KitchenLib.References;
 using KitchenLib.Utils;
+using IngredientLib.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,13 +13,15 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using static KitchenData.ItemGroup;
+using SoupsPlus.Utils;
 
-namespace KitchenSoupsPlus.ChickenNoodleSoup
+namespace KitchenSoupsPlus.Soups
 {
-    class ChickenNoodleSoupPot : CustomItemGroup<ChickenNoodleSoupPotItemGroupView>
+    #region Whole Onion
+    class MisoSoupPot : CustomItemGroup<MisoSoupPotItemGroupView>
     {
-        public override string UniqueNameID => "Chicken Noodle Soup Pot";
-        public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("ChickenNoodleSoupPot");
+        public override string UniqueNameID => "Miso Soup Pot";
+        public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("MisoSoupPot");
         public override ItemCategory ItemCategory => ItemCategory.Generic;
         public override ItemStorage ItemStorageFlags => ItemStorage.Small;
         public override Item DisposesTo => Refs.Pot;
@@ -32,7 +35,7 @@ namespace KitchenSoupsPlus.ChickenNoodleSoup
                 IsMandatory = true,
                 Items = new List<Item>()
                 {
-                    Refs.Broth
+                    Refs.ChoppedTofuPot
                 }
             },
             new ItemSet()
@@ -41,8 +44,7 @@ namespace KitchenSoupsPlus.ChickenNoodleSoup
                 Min = 1,
                 Items = new List<Item>()
                 {
-                    Refs.EggNoodle,
-                    Refs.BoxNoodle
+                    Refs.Water
                 }
             },
             new ItemSet()
@@ -51,7 +53,7 @@ namespace KitchenSoupsPlus.ChickenNoodleSoup
                 Min = 1,
                 Items = new List<Item>()
                 {
-                    Refs.Chicken
+                    Refs.Miso
                 }
             }
         };
@@ -61,38 +63,29 @@ namespace KitchenSoupsPlus.ChickenNoodleSoup
             {
                 Duration = 10f,
                 Process = Refs.Cook,
-                Result = Refs.ChickenNoodleSoupPotCooked
+                Result = Refs.MisoSoupPotCooked
             }
         };
 
         private bool GameDataBuilt = false;
         public override void OnRegister(GameDataObject gameDataObject)
         {
-            var materials = new Material[1];
+            var pot = Prefab.GetChildFromPath("Pot/Pot.001");
 
-            materials[0] = MaterialUtils.GetExistingMaterial("Metal");
-            MaterialUtils.ApplyMaterial(Prefab, "Broth/Pot", materials);
+            //Visuals
 
-            materials[0] = MaterialUtils.GetExistingMaterial("Metal Dark");
-            MaterialUtils.ApplyMaterial(Prefab, "Broth/Handles", materials);
+            Prefab.ApplyMaterialToChild("Chopped Tofu.002", "Mayonnaise");
+            Prefab.ApplyMaterialToChild("Miso.003", "Onion");
 
-            materials[0] = MaterialUtils.GetExistingMaterial("Soup");
-            MaterialUtils.ApplyMaterial(Prefab, "Broth/Water", materials);
+            pot.ApplyMaterialToChild("Cylinder", "Metal");
 
-            materials[0] = MaterialUtils.GetExistingMaterial("Onion");
-            MaterialUtils.ApplyMaterial(Prefab, "Broth/Onion", materials);
+            pot.ApplyMaterialToChild("Cylinder.001", "Metal Dark");
 
-            materials[0] = MaterialUtils.GetExistingMaterial("Sack");
-            MaterialUtils.ApplyMaterial(Prefab, "BoxNoodles", materials);
-
-            materials[0] = MaterialUtils.GetExistingMaterial("Sack");
-            MaterialUtils.ApplyMaterial(Prefab, "EggNoodles", materials);
-
-            materials[0] = CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Raw Chicken\""];
-            MaterialUtils.ApplyMaterial(Prefab, "Chicken", materials);
+            Prefab.ApplyMaterialToChild("Water.003", "Water");
+            Prefab.ApplyMaterialToChild("Scallions.001", "Cooked Broccoli", "Lettuce");
 
 
-            Prefab.GetComponent<ChickenNoodleSoupPotItemGroupView>()?.Setup(Prefab);
+            Prefab.GetComponent<MisoSoupPotItemGroupView>()?.Setup(Prefab);
 
             if (GameDataBuilt)
             {
@@ -108,7 +101,10 @@ namespace KitchenSoupsPlus.ChickenNoodleSoup
             GameDataBuilt = true;
         }
     }
-    public class ChickenNoodleSoupPotItemGroupView : ItemGroupView
+    #endregion
+
+
+    public class MisoSoupPotItemGroupView : ItemGroupView
     {
         internal void Setup(GameObject prefab)
         {
@@ -118,23 +114,23 @@ namespace KitchenSoupsPlus.ChickenNoodleSoup
             {
                 new()
                 {
-                    GameObject = GameObjectUtils.GetChildObject(prefab, "Broth"),
-                    Item = Refs.Broth
+                    GameObject = GameObjectUtils.GetChildObject(prefab, "Chopped Tofu.002"),
+                    Item = Refs.ChoppedTofuPot,
                 },
                 new()
                 {
-                    GameObject = GameObjectUtils.GetChildObject(prefab, "Chicken"),
-                    Item = Refs.Chicken
+                    Objects = new()
+                    {
+                        GameObjectUtils.GetChildObject(prefab, "Miso.003"),
+                        GameObjectUtils.GetChildObject(prefab, "Scallions.001"),
+                    },
+                    DrawAll = true,
+                    Item = Refs.Miso
                 },
                 new()
                 {
-                    GameObject = GameObjectUtils.GetChildObject(prefab, "BoxNoodles"),
-                    Item = Refs.BoxNoodle
-                },
-                new()
-                {
-                    GameObject = GameObjectUtils.GetChildObject(prefab, "EggNoodles"),
-                    Item = Refs.EggNoodle
+                    GameObject = GameObjectUtils.GetChildObject(prefab, "Water.003"),
+                    Item = Refs.Water
                 }
             };
 
@@ -142,18 +138,13 @@ namespace KitchenSoupsPlus.ChickenNoodleSoup
             {
                 new ()
                 {
-                    Text = "Chi",
-                    Item = Refs.Chicken
+                    Text = "Mi",
+                    Item = Refs.Miso
                 },
                 new ()
                 {
-                    Text = "No",
-                    Item = Refs.EggNoodle
-                },
-                new ()
-                {
-                    Text = "No",
-                    Item = Refs.BoxNoodle
+                    Text = "W",
+                    Item = Refs.Water
                 }
             };
         }

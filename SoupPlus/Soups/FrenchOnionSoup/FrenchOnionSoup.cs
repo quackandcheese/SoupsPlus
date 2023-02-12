@@ -18,8 +18,8 @@ namespace KitchenSoupsPlus.FrenchOnionSoup
         public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("FrenchOnionSoup");
         public override ItemCategory ItemCategory => ItemCategory.Generic;
         public override ItemStorage ItemStorageFlags => ItemStorage.StackableFood;
-        public override ItemValue ItemValue => ItemValue.SideLarge;
-        public override string ColourBlindTag => "FO";
+        public override ItemValue ItemValue => ItemValue.SideMedium;
+        public override string ColourBlindTag => "FrO";
 
 
 

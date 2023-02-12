@@ -15,7 +15,7 @@ using UnityEngine;
 using static KitchenData.ItemGroup;
 using SoupsPlus.Utils;
 
-namespace KitchenSoupsPlus.FrenchOnionSoup
+namespace KitchenSoupsPlus.Soups
 {
     #region Whole Onion
     class FrenchOnionSoupPot : CustomItemGroup<FrenchOnionSoupPotItemGroupView>
@@ -234,6 +234,11 @@ namespace KitchenSoupsPlus.FrenchOnionSoup
             {
                 new ()
                 {
+                    Text = "Ch",
+                    Item = Refs.ChoppedCheese
+                },
+                new ()
+                {
                     Text = "O",
                     Item = Refs.Onion
                 },
@@ -241,11 +246,6 @@ namespace KitchenSoupsPlus.FrenchOnionSoup
                 {
                     Text = "O",
                     Item = Refs.ChoppedOnion
-                },
-                new ()
-                {
-                    Text = "C",
-                    Item = Refs.ChoppedCheese
                 }
             };
         }

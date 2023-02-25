@@ -36,10 +36,10 @@ namespace KitchenSoupsPlus
         #endregion
 
         #region IngredientLib References
-        public static ItemGroup PastaPot => Find<ItemGroup>("IngredientLib", "potted pasta");
-        public static Item Chicken => Find<Item>("IngredientLib", "chicken");
-        public static Item EggNoodle => Find<Item>("IngredientLib", "egg dough pasta");
-        public static Item BoxNoodle => Find<Item>("IngredientLib", "box pasta");
+        public static ItemGroup PastaPot => Find<ItemGroup>(IngredientLib.References.GetIngredient("potted pasta"));
+        public static Item Chicken => Find<Item>(IngredientLib.References.GetIngredient("chicken"));
+        public static Item EggNoodle => Find<Item>(IngredientLib.References.GetIngredient("egg dough pasta"));
+        public static Item BoxNoodle => Find<Item>(IngredientLib.References.GetIngredient("box pasta"));
         #endregion
 
         #region Modded References

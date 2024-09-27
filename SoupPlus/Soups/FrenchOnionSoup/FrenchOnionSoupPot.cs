@@ -5,7 +5,6 @@ using KitchenLib.Colorblind;
 using KitchenLib.Customs;
 using KitchenLib.References;
 using KitchenLib.Utils;
-using IngredientLib.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -73,7 +72,7 @@ namespace KitchenSoupsPlus.Soups
 
             var onionGroup = Prefab.GetChild("Onion Group");
 
-            var pot = Prefab.GetChildFromPath("Pot/Pot.001");
+            var pot = Prefab.GetChild("Pot/Pot.001");
 
             //Visuals
 
@@ -149,14 +148,13 @@ namespace KitchenSoupsPlus.Soups
             }
         };
 
-        private bool GameDataBuilt = false;
         public override void OnRegister(GameDataObject gameDataObject)
         {
             var onionBroth = Prefab.GetChild("Onion Broth");
 
             var onionGroup = Prefab.GetChild("Onion Group");
 
-            var pot = Prefab.GetChildFromPath("Pot/Pot.001");
+            var pot = Prefab.GetChild("Pot/Pot.001");
 
             //Visuals
 
@@ -177,20 +175,14 @@ namespace KitchenSoupsPlus.Soups
             Prefab.ApplyMaterialToChild("Water", "Onion");
 
 
-            Prefab.GetComponent<FrenchOnionSoupPotItemGroupView>()?.Setup(Prefab);
 
-            if (GameDataBuilt)
-            {
-                return;
-            }
+            Prefab.GetComponent<FrenchOnionSoupPotItemGroupView>()?.Setup(Prefab);
 
             if (Prefab.TryGetComponent<ItemGroupView>(out var itemGroupView))
             {
                 GameObject clonedColourBlind = ColorblindUtils.cloneColourBlindObjectAndAddToItem(GameDataObject as ItemGroup);
                 ColorblindUtils.setColourBlindLabelObjectOnItemGroupView(itemGroupView, clonedColourBlind);
             }
-
-            GameDataBuilt = true;
         }
     }
     #endregion

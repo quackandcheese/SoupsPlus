@@ -1,5 +1,4 @@
-﻿using IngredientLib.Util;
-using Kitchen;
+﻿using Kitchen;
 using KitchenData;
 using KitchenLib.Customs;
 using KitchenLib.Utils;
@@ -50,7 +49,7 @@ namespace KitchenSoupsPlus.FrenchOnionSoup
         {
             var frenchOnion = Prefab.GetChild("French Onion");
 
-            var pot = Prefab.GetChildFromPath("Pot.002/Pot.003");
+            var pot = Prefab.GetChild("Pot.002/Pot.003");
 
             // Visuals
 

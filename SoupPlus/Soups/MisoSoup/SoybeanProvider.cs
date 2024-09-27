@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
-using IngredientLib.Util;
 using SoupsPlus.Utils;
 
 namespace KitchenSoupsPlus.Soups

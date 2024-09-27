@@ -40,7 +40,7 @@ namespace KitchenSoupsPlus.FrenchOnionSoup
 
         public override Dictionary<Locale, string> Recipe => new Dictionary<Locale, string>
         {
-            { Locale.English, "Add water and an onion to a pot, cook. Add onion or chopped onion and cheese or grated cheese to broth. Cook, portion, and serve." }
+            { Locale.English, "Add water and an onion to a pot, cook. Add onion or chopped onion and grated cheese to broth. Cook, portion, and serve." }
         };
         public override IDictionary<Locale, UnlockInfo> LocalisedInfo => new Dictionary<Locale, UnlockInfo>
         {

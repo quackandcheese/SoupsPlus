@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
-using IngredientLib.Util;
 using SoupsPlus.Utils;
 
 namespace KitchenSoupsPlus.Soups
@@ -31,7 +30,7 @@ namespace KitchenSoupsPlus.Soups
         };
 
 
-        public override void OnRegister(GameDataObject gameDataObject)
+        public override void OnRegister(Appliance appliance)
         {
             MaterialHelper.SetupGenericFlourSack(Prefab, "Onion");
         }

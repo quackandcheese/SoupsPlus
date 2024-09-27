@@ -1,5 +1,4 @@
-﻿using IngredientLib.Util;
-using KitchenData;
+﻿using KitchenData;
 using KitchenLib.Customs;
 using KitchenLib.Utils;
 using SoupsPlus.Utils;
@@ -25,7 +24,7 @@ namespace KitchenSoupsPlus.Soups
 
         public override void OnRegister(GameDataObject gameDataObject)
         {
-            var soupPath = Prefab.GetChildFromPath("Miso.004/Miso.005");
+            var soupPath = Prefab.GetChild("Miso.004/Miso.005");
 
             // Visuals
 

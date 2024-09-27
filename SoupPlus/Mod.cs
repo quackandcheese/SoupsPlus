@@ -18,7 +18,7 @@ namespace KitchenSoupsPlus
         // Mod Version must follow semver notation e.g. "1.2.3"
         public const string MOD_GUID = "QuackAndCheese.PlateUp.SoupsPlus";
         public const string MOD_NAME = "SoupsPlus";
-        public const string MOD_VERSION = "0.1.3";
+        public const string MOD_VERSION = "0.1.4";
         public const string MOD_AUTHOR = "QuackAndCheese";
         public const string MOD_GAMEVERSION = ">=1.1.3";
         // Game version this mod is designed for in semver
@@ -81,7 +81,7 @@ namespace KitchenSoupsPlus
         protected override void OnPostActivate(KitchenMods.Mod mod)
         {
             // TODO: Uncomment the following if you have an asset bundle.
-            // TODO: Also, make sure to set EnableAssetBundleDeploy to 'true' in your ModName.csproj
+            // TODO: Also, make sure to set EnableAssetBundleDeploy to 'true' in your ModName.csproj 
 
             LogInfo("Attempting to load asset bundle...");
             Bundle = mod.GetPacks<AssetBundleModPack>().SelectMany(e => e.AssetBundles).First();

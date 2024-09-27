@@ -1,5 +1,4 @@
-﻿using IngredientLib.Util;
-using KitchenData;
+﻿using KitchenData;
 using KitchenLib.Customs;
 using KitchenLib.Utils;
 using SoupsPlus.Utils;
@@ -32,7 +31,7 @@ namespace KitchenSoupsPlus.Soups
 
         public override void OnRegister(GameDataObject gameDataObject)
         {
-            var pot = Prefab.GetChildFromPath("Pot/Pot.001");
+            var pot = Prefab.GetChild("Pot/Pot.001");
 
             //Visuals
 

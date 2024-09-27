@@ -5,7 +5,6 @@ using KitchenLib.Colorblind;
 using KitchenLib.Customs;
 using KitchenLib.References;
 using KitchenLib.Utils;
-using IngredientLib.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -70,7 +69,7 @@ namespace KitchenSoupsPlus.Soups
         private bool GameDataBuilt = false;
         public override void OnRegister(GameDataObject gameDataObject)
         {
-            var pot = Prefab.GetChildFromPath("Pot/Pot.001");
+            var pot = Prefab.GetChild("Pot/Pot.001");
 
             //Visuals
 

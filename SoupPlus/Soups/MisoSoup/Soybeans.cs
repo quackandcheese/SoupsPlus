@@ -1,5 +1,4 @@
-﻿using IngredientLib.Util;
-using KitchenData;
+﻿using KitchenData;
 using KitchenLib.Customs;
 using KitchenLib.Utils;
 using SoupsPlus.Utils;
@@ -19,6 +18,7 @@ namespace KitchenSoupsPlus.Soups
         public override ItemCategory ItemCategory => ItemCategory.Generic;
         public override ItemStorage ItemStorageFlags => ItemStorage.StackableFood;
         public override ItemValue ItemValue => ItemValue.Medium;
+        public override Appliance DedicatedProvider => Refs.SoybeanProvider;
 
         public override void OnRegister(GameDataObject gameDataObject)
         {

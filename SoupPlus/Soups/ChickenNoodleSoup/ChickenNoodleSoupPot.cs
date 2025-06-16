@@ -42,7 +42,7 @@ namespace KitchenSoupsPlus.ChickenNoodleSoup
                 Items = new List<Item>()
                 {
                     Refs.EggNoodle,
-                    Refs.BoxNoodle
+                    Refs.Spaghetti
                 }
             },
             new ItemSet()
@@ -129,7 +129,7 @@ namespace KitchenSoupsPlus.ChickenNoodleSoup
                 new()
                 {
                     GameObject = GameObjectUtils.GetChildObject(prefab, "BoxNoodles"),
-                    Item = Refs.BoxNoodle
+                    Item = Refs.Spaghetti
                 },
                 new()
                 {
@@ -153,7 +153,7 @@ namespace KitchenSoupsPlus.ChickenNoodleSoup
                 new ()
                 {
                     Text = "No",
-                    Item = Refs.BoxNoodle
+                    Item = Refs.Spaghetti
                 }
             };
         }

@@ -26,7 +26,7 @@ namespace KitchenSoupsPlus
         public static Item Onion => Find<Item>(ItemReferences.Onion);
         public static Item ChoppedOnion => Find<Item>(ItemReferences.OnionChopped);
         public static Item Cheese => Find<Item>(ItemReferences.Cheese);
-        public static Item ChoppedCheese => Find<Item>(ItemReferences.CheeseGrated)
+        public static Item ChoppedCheese => Find<Item>(ItemReferences.CheeseGrated);
         public static Item Spaghetti => Find<Item>(ItemReferences.Spaghetti);
 
         // Processes

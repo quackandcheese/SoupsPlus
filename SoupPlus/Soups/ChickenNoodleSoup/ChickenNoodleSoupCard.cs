@@ -30,7 +30,7 @@ namespace KitchenSoupsPlus.ChickenNoodleSoup
         {
             Refs.Pot,
             Refs.Chicken,
-            Refs.BoxNoodle,
+            Refs.Spaghetti,
             Refs.Water,
             Refs.Onion
         };
